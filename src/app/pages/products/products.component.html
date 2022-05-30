@@ -1,0 +1,40 @@
+<div class="content">
+    <div class="header">
+        <span class="title" routerLink="/">YUSUF GOKOL</span>
+        <div routerLink="/panier" class="cart">
+            <div class="items">
+                {{cartCount}}
+            </div>
+            <span>PANIER</span>
+        </div>
+    </div>
+    <div class="center">
+        <div class="products-container">
+            <div (click)="openProduct(p)" (mouseenter)="hover(true, p, p.node.id)" (mouseleave)="hover(false, p, p.node.id)" class="item" *ngFor="let p of allProducts">
+                <img id="{{p.node.id}}" src="{{p.node.images.edges[0].node.transformedSrc}}" alt="">
+                <div class="infos">
+                    <span>{{p.node.title}}</span>
+                    <span>{{p.node.priceRange.minVariantPrice.amount}} €</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="menu">
+            <span class="menu-item">PRIX D'EXPEDITION</span>
+            <span class="menu-item">DURABILITÉ</span>
+            <span class="menu-item" routerLink="/produits">PRODUITS</span>
+            <span class="menu-item">S'INSCRIRE</span>
+            <span class="menu-item">TAILLES</span>
+            <span class="menu-item">CGV</span>
+        </div>
+
+        <div class="social">
+            <img src="assets/svg-black/tiktok.svg" alt="">
+            <img src="assets/svg-black/instagram.svg" alt="">
+            <img src="assets/svg-black/facebook.svg" alt="">
+            <img src="assets/svg-black/snapchat.svg" alt="">
+            <img src="assets/svg-black/gmail.svg" alt="">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<ng-container *ngIf="data">
+    <div class="content">
+        <div class="header">
+            <span class="title" routerLink="/">YUSUF GOKOL</span>
+            <div routerLink="/panier" class="cart">
+                <div class="items">
+                    {{cartCount}}
+                </div>
+                <span>PANIER</span>
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="item">
+                <div class="pics">
+                    <img src="{{data.node.images.edges[0].node.transformedSrc}}" alt="">
+                    <div class="minipics">
+                        <img src="{{data.node.images.edges[1].node.transformedSrc}}" alt="">
+                    </div>
+                </div>
+                <div class="infos">
+                    <span class="title">{{data.node.title}}</span>
+                    <span class="price">{{data.node.priceRange.minVariantPrice.amount}} €</span>
+                    <button class="addToCart" (click)="addToCart()">Ajouter au panier</button>
+                    <p class="descr">{{data.node.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="menu">
+                <span class="menu-item">PRIX D'EXPEDITION</span>
+                <span class="menu-item">DURABILITÉ</span>
+                <span class="menu-item" routerLink="/produits">PRODUITS</span>
+                <span class="menu-item">S'INSCRIRE</span>
+                <span class="menu-item">TAILLES</span>
+                <span class="menu-item">CGV</span>
+            </div>
+    
+            <div class="social">
+                <img src="assets/svg-black/tiktok.svg" alt="">
+                <img src="assets/svg-black/instagram.svg" alt="">
+                <img src="assets/svg-black/facebook.svg" alt="">
+                <img src="assets/svg-black/snapchat.svg" alt="">
+                <img src="assets/svg-black/gmail.svg" alt="">
+            </div>
+        </div>
+    </div>
+</ng-container>

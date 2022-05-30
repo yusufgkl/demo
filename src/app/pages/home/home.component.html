@@ -1,0 +1,51 @@
+<video *ngIf="mode" autoplay muted loop id="myVideo">
+    <source src="assets/video/hongKong.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+<video *ngIf="!mode" autoplay muted loop id="myVideo">
+    <source src="assets/video/beach-trash-view.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+<div class="overlay">
+    <div class="content">
+        <div class="header">
+            <span class="title">YUSUF GOKOL</span>
+            <!-- <button (click)="mode = !mode">SWITCH</button> -->
+            <label class="toggle-control toggle">
+                <input (click)="toggle()" type="checkbox" checked="checked">
+                <span class="control toggle-text">{{toggleText}}</span>
+              </label>
+              
+            <div routerLink="/panier" class="cart">
+                <div class="items">
+                    {{cartCount}}
+                </div>
+                <span>PANIER</span>
+            </div>
+        </div>
+        <div class="globe">
+            <canvas #canvas id="canvas" style="width: 100%; height: 100%;"></canvas>
+        </div>
+        <div class="footer">
+            <div class="menu">
+                <span class="menu-item">PRIX D'EXPEDITION</span>
+                <span class="menu-item">DURABILITÉ</span>
+                <span class="menu-item" routerLink="/produits">PRODUITS</span>
+                <span class="menu-item">S'INSCRIRE</span>
+                <span class="menu-item">TAILLES</span>
+                <span class="menu-item">CGV</span>
+            </div>
+
+            <div class="social">
+                <img src="assets/svg-light/tiktok.svg" alt="">
+                <img src="assets/svg-light/instagram.svg" alt="">
+                <img src="assets/svg-light/facebook.svg" alt="">
+                <img src="assets/svg-light/snapchat.svg" alt="">
+                <img src="assets/svg-light/gmail.svg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <canvas #canvas id="canvas" style="width: 100%; height: 100%;"></canvas> -->

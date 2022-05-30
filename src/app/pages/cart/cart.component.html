@@ -1,0 +1,66 @@
+<div class="content">
+    <div class="header">
+        <span class="title" routerLink="/">YUSUF GOKOL</span>
+        <div routerLink="/panier" class="cart">
+            <div class="items">
+                {{cartCount}}
+            </div>
+            <span>PANIER</span>
+        </div>
+    </div>
+    <div class="products-container">
+        <ng-container *ngIf="inCart.length === 0">
+            <span>PANIER VIDE</span>
+        </ng-container>
+        <ng-container *ngIf="inCart.length > 0">
+            <div *ngFor="let i of inCart" class="item">
+                <button>X</button>
+                <div class="preview">
+                    <img [src]="i.node.images.edges[0].node.transformedSrc" alt="">
+                    <div class="infos">
+                        <span class="title">{{i.node.title}}</span>
+                        <span class="options">OPTIONS / COULEURS</span>
+                    </div>
+                </div>
+                <div class="end">
+                    <div class="actions">
+                        <button>-</button>
+                        <span class="qty">1</span>
+                        <button>+</button>
+                    </div>
+                    <span class="price">{{i.node.priceRange.minVariantPrice.amount}} €</span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="footer">
+        <div class="menu">
+            <span class="menu-item">PRIX D'EXPEDITION</span>
+            <span class="menu-item">DURABILITÉ</span>
+            <span class="menu-item" routerLink="/produits">PRODUITS</span>
+            <span class="menu-item">S'INSCRIRE</span>
+            <span class="menu-item">TAILLES</span>
+            <span class="menu-item">CGV</span>
+        </div>
+
+        <div class="resume">
+            <span class="total">750 €</span>
+            <div class="cond">
+                <label>
+                    <input type="checkbox">
+                    J'accepte les conditions générales de vente
+                </label>
+            </div>
+            <button class="checkout" (click)="checkout()">COMMANDER</button>
+            <span class="continue" routerLink="/produits">CONTINUER LE SHOPPING</span>
+        </div>
+
+        <div class="social">
+            <img src="assets/svg-black/tiktok.svg" alt="">
+            <img src="assets/svg-black/instagram.svg" alt="">
+            <img src="assets/svg-black/facebook.svg" alt="">
+            <img src="assets/svg-black/snapchat.svg" alt="">
+            <img src="assets/svg-black/gmail.svg" alt="">
+        </div>
+    </div>
+</div>
